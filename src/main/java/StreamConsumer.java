@@ -32,7 +32,7 @@ public class StreamConsumer {
         Executors.newScheduledThreadPool(1).scheduleAtFixedRate(() -> {
             System.out.println("----------------------------------------");
             ConsumerRecords<Integer, String> consumerRecords = kafkaConsumer.poll(Duration.ofMillis(10));
-            
+
             consumerRecords.forEach(cr -> {
                 System.out.println("Key: " + cr.key() + ", Value: " + cr.value() + ", offset: " + cr.offset());
             });
